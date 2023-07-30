@@ -16,6 +16,8 @@ load_dotenv()
 REPOSITORY_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), "playground")
 
 class Embeddings:
+    document_embeddings: dict[tuple[str, str], list[float]]
+    
     def __init__(self, workspace_path: str):
         self.workspace_path = workspace_path
         openai.api_key = os.getenv("OPENAI_API_KEY", "")
